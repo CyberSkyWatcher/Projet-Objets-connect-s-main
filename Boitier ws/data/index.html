@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+  <head>
+    <title></title>  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+      h1 {font-family:monospace;text-align:center}
+      h4 {font-family:cursive;font-style:italic}
+      ul {font-family:tahoma;font-weight:normal;font-style:italic;font-size:14px;line-height:20px}
+      hr {border: 3px solid green;}
+      p {font-family:tahoma}
+      span {font-family:tahoma;line-height:35px}
+      div {text-align:center}
+      button {font-size:20px}
+      .mySlides {display:none;}
+    </style>
+    <style>
+      table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      }
+    </style>  
+
+<script>
+  setInterval(function ( ) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+ 
+        var commande = this.responseText;
+
+        console.log(this.responseText);
+
+        for(let i = 0; i < parseInt(commande.charAt(0));i++){
+          incrementE1();
+        }
+        for(let i = 0; i < parseInt(commande.charAt(2));i++){
+          incrementE2();
+        }
+        for(let i = 0; i < parseInt(commande.charAt(4));i++){
+          incrementE3();
+        }
+        for(let i = 0; i < parseInt(commande.charAt(6));i++){
+          incrementE4();
+        }
+        for(let i = 0; i < parseInt(commande.charAt(8));i++){
+          incrementE5();
+        }
+        for(let i = 0; i < parseInt(commande.charAt(10));i++){
+          incrementE6();
+        }
+        for(let i = 0; i < parseInt(commande.charAt(12));i++){
+          incrementE7();
+        }
+      }
+    };
+    xhttp.open("GET", "/scores", true);
+    xhttp.send(null);
+  }, 10000 ) ;
+
+
+    function incrementE1() {
+      document.getElementById('E1').stepUp();
+    }
+
+    function incrementE2() {
+      document.getElementById('E2').stepUp();
+    }
+
+    function incrementE3() {
+      document.getElementById('E3').stepUp();
+    }
+
+    function incrementE4() {
+      document.getElementById('E4').stepUp();
+    }
+
+    function incrementE5() {
+      document.getElementById('E5').stepUp();
+    }
+
+    function incrementE6() {
+      document.getElementById('E6').stepUp();
+    }
+    function incrementE7() {
+      document.getElementById('E7').stepUp();
+    }
+
+  </script>
+  </head>
+  <body class="w3-animate-opacity">
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
+      <button onclick="w3_close()" class="w3-bar-item w3-large w3-hover-grey">Close &times;</button>
+      <a href="/commande" class="w3-bar-item w3-button w3-hover-grey">Commandes</a>
+    </div>
+<!-- Page Content -->
+    <div id="main" style="text-align:left">
+      <div class="w3-blue-grey" style = "text-align:left">
+        <button class="w3-button w3-blue-grey w3-xlarge" onclick="w3_open()">☰</button>
+        <header class="w3-container w3-blue-grey">
+          <h1 class="w3-animate-top"> Cocktails des électroniciens et informaticiens </h1>
+        </header>
+      </div>
+      <script>
+      function w3_open() {
+        document.getElementById("main").style.marginLeft = "25%";
+        document.getElementById("mySidebar").style.width = "25%";
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("openNav").style.display = 'none';
+      }
+      function w3_close() {
+        document.getElementById("main").style.marginLeft = "0%";
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("openNav").style.display = "inline-block";
+      }
+      </script>
+
+      <h4> MA1 Electronique & Informatique</h4>
+      <h2 id="infos" style="text-align: center;"> Règles du jeu :</h2>
+      <br>
+      <h3 style="text-align: center;">
+        Pour participer au jeu il faut s'inscrire par groupe de 4 ou 5 auprès d'un des membres organisateur.
+        <br>
+        Chaque équipe possède une carte qu'il faudra scanner à chaque fois qu'un boîtier positioné sur un mur s'illumine.
+        Seul le premier groupe à scanner reçoit un point, soyez donc rapide ! <br>
+        Les gagnants recevront un bon de 30€ pour l'escape game Let Me Out
+      </h3>
+      <h2 style = "text-align:center;font-size:25px"> SCORE </h2>
+      <br>
+ 
+      <div id = "score" style="text-align: center;">
+        <table align="center">    
+          <tr>
+            <td>Equipe 1</td>
+            <td>Equipe 2</td>
+            <td>Equipe 3</td>
+            <td>Equipe 4</td>
+            <td>Equipe 5</td>
+            <td>Equipe 6</td>
+            <td>Equipe 7</td>
+          </tr>
+          <tr>
+            <td> <input id=E1 type=number value="0" min="0" style="text-align: center;"> </td>
+            <td> <input id=E2 type=number value="0" min="0" style="text-align: center;"> </td>
+            <td> <input id=E3 type=number value="0" min="0" style="text-align: center;"> </td>
+            <td> <input id=E4 type=number value="0" min="0" style="text-align: center;"> </td>
+            <td> <input id=E5 type=number value="0" min="0" style="text-align: center;"> </td>
+            <td> <input id=E6 type=number value="0" min="0" style="text-align: center;"> </td>
+            <td> <input id=E7 type=number value="0" min="0" style="text-align: center;"> </td>
+          </tr>
+        </table>
+      </div>
+      <br>
+      <br>
+      <br>
+    <footer class="w3-container w3-blue-grey w3-margin-top">
+        <h5>Local hosted webserver</h5>
+        <p> Launched from an ESP32 </p>
+        <p>&copy; Copyright Master 1 2022-23 </p>
+
+    </footer>
+  </body>
+</html>
